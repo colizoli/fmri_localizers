@@ -17,8 +17,8 @@ I will continue to update with more scripts.
 * Black vs. color 
 * blocked design
 
-#### Gustatory_Synesthesia_Localizer_MRI.sce
-* Dutch vs. Foreign words spoken
+#### Language_Sound_Localizer_MRI.sce
+* Dutch vs. foreign words spoken
 * Musical instruments vs. daily environmental sounds
 * blocked design
 
