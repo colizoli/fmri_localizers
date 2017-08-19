@@ -25,3 +25,4 @@ Note: The color localization used in these studies was similar but with letters 
 
 * Colizoli, O., Murre, J. M., & Rouw, R. (2013). A taste for words and sounds: a case of lexical-gustatory and sound-gustatory synesthesia. Frontiers in Psychology ,  4: 775. [OPEN ACCESS](http://journal.frontiersin.org/article/10.3389/fpsyg.2013.00775/full)
 
+Feel free to email me for copies of closed-access publications
