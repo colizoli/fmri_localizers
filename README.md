@@ -16,7 +16,7 @@ I will continue to update with more scripts.
 * Black vs. Color 
 * blocked design
 
-The VWFA was used successfully in the following publications. 
+The VWFA and color protocol was used successfully in the following publications. 
 Note: The color localization used in these studies was similar but with letters instead of words.
 
 * Colizoli, O., Murre, J. M., Scholte, H. S., & Rouw, R. (2017). Creating Colored Letters: Familial Markers of Grapheme–Color Synesthesia in Parietal Lobe Activation and Structure. Journal of Cognitive Neuroscience (in press).
