@@ -1,0 +1,664 @@
+#######################################################
+# Category-specific visual perception - blocked fMRI
+# O. Colizoli, 2012									   
+
+# 16 seconds active, 4 sec baseline (fixation cross)  
+# 6 conditions:                                        
+# Faces, Houses, Words (Dutch), Objects, Scrambled Objects, Colors                                                         
+# Instructions - passive viewing, maintain fixation                                 
+# 6 conditions x 2 blocks = 12 blocks total            
+# 16 images per block x 2 blocks per condition       
+# Recommended to present several runs of this localizer to each subject  
+########################################################
+
+
+scenario = "Localizer_Categories";
+
+#screen_width = 1920;
+#screen_height = 1200;
+#screen_bit_depth = 32;    
+
+
+default_background_color = 217, 217, 217; 
+default_font = "Arial Black";
+default_font_size = 100;
+default_text_color = 0,0,0;
+response_matching = simple_matching;
+response_logging = log_all;
+active_buttons = 2;
+button_codes = 1,2;
+no_logfile = false;
+
+scenario_type = fMRI_emulation; # only here to make emulation possible if desired
+scan_period = 2000;   
+#scenario_type = fMRI; # for real
+pulses_per_scan = 1;
+pulse_code = 255;
+
+begin;
+
+################ STIMULUS DEFINITIONS ################
+
+## Images ##			
+array{														
+bitmap {filename = "face1.png";  description = "1"; } face1;
+bitmap {filename = "face2.png";  description = "2"; } face2;
+bitmap {filename = "face3.png";  description = "3"; } face3;
+bitmap {filename = "face4.png";  description = "4"; } face4;
+bitmap {filename = "face5.png";  description = "5"; } face5;
+bitmap {filename = "face6.png";  description = "6"; } face6;
+bitmap {filename = "face7.png";  description = "7"; } face7;
+bitmap {filename = "face8.png";  description = "8"; } face8;
+bitmap {filename = "face9.png";  description = "9"; } face9;
+bitmap {filename = "face10.png";  description = "10"; } face10;
+bitmap {filename = "face11.png";  description = "11"; } face11;
+bitmap {filename = "face12.png";  description = "12"; } face12;
+bitmap {filename = "face13.png";  description = "13"; } face13;
+bitmap {filename = "face14.png";  description = "14"; } face14;
+bitmap {filename = "face15.png";  description = "15"; } face15;
+bitmap {filename = "face16.png";  description = "16"; } face16;
+bitmap {filename = "face17.png";  description = "17"; } face17;
+bitmap {filename = "face18.png";  description = "18"; } face18;
+bitmap {filename = "face19.png";  description = "19"; } face19;
+bitmap {filename = "face20.png";  description = "20"; } face20;
+bitmap {filename = "face21.png";  description = "21"; } face21;
+bitmap {filename = "face22.png";  description = "22"; } face22;
+bitmap {filename = "face23.png";  description = "23"; } face23;
+bitmap {filename = "face24.png";  description = "24"; } face24;
+bitmap {filename = "face25.png";  description = "25"; } face25;
+bitmap {filename = "face26.png";  description = "26"; } face26;
+bitmap {filename = "face27.png";  description = "27"; } face27;
+bitmap {filename = "face28.png";  description = "28"; } face28;
+bitmap {filename = "face29.png";  description = "29"; } face29;
+bitmap {filename = "face30.png";  description = "30"; } face30;
+bitmap {filename = "face31.png";  description = "31"; } face31;
+bitmap {filename = "face32.png";  description = "32"; } face32;
+} faces;
+
+
+array{														
+bitmap {filename = "house1.png";  description = "1"; } house1;
+bitmap {filename = "house2.png";  description = "2"; } house2;
+bitmap {filename = "house3.png";  description = "3"; } house3;
+bitmap {filename = "house4.png";  description = "4"; } house4;
+bitmap {filename = "house5.png";  description = "5"; } house5;
+bitmap {filename = "house6.png";  description = "6"; } house6;
+bitmap {filename = "house7.png";  description = "7"; } house7;
+bitmap {filename = "house8.png";  description = "8"; } house8;
+bitmap {filename = "house9.png";  description = "9"; } house9;
+bitmap {filename = "house10.png";  description = "10"; } house10;
+bitmap {filename = "house11.png";  description = "11"; } house11;
+bitmap {filename = "house12.png";  description = "12"; } house12;
+bitmap {filename = "house13.png";  description = "13"; } house13;
+bitmap {filename = "house14.png";  description = "14"; } house14;
+bitmap {filename = "house15.png";  description = "15"; } house15;
+bitmap {filename = "house16.png";  description = "16"; } house16;
+bitmap {filename = "house17.png";  description = "17"; } house17;
+bitmap {filename = "house18.png";  description = "18"; } house18;
+bitmap {filename = "house19.png";  description = "19"; } house19;
+bitmap {filename = "house20.png";  description = "20"; } house20;
+bitmap {filename = "house21.png";  description = "21"; } house21;
+bitmap {filename = "house22.png";  description = "22"; } house22;
+bitmap {filename = "house23.png";  description = "23"; } house23;
+bitmap {filename = "house24.png";  description = "24"; } house24;
+bitmap {filename = "house25.png";  description = "25"; } house25;
+bitmap {filename = "house26.png";  description = "26"; } house26;
+bitmap {filename = "house27.png";  description = "27"; } house27;
+bitmap {filename = "house28.png";  description = "28"; } house28;
+bitmap {filename = "house29.png";  description = "29"; } house29;
+bitmap {filename = "house30.png";  description = "30"; } house30;
+bitmap {filename = "house31.png";  description = "31"; } house31;
+bitmap {filename = "house32.png";  description = "32"; } house32;
+} houses;
+
+array{	
+bitmap {filename = "word1.png";  description = "1"; } word1;
+bitmap {filename = "word2.png";  description = "2"; } word2;
+bitmap {filename = "word3.png";  description = "3"; } word3;
+bitmap {filename = "word4.png";  description = "4"; } word4;
+bitmap {filename = "word5.png";  description = "5"; } word5;
+bitmap {filename = "word6.png";  description = "6"; } word6;
+bitmap {filename = "word7.png";  description = "7"; } word7;
+bitmap {filename = "word8.png";  description = "8"; } word8;
+bitmap {filename = "word9.png";  description = "9"; } word9;
+bitmap {filename = "word10.png";  description = "10"; } word10;
+bitmap {filename = "word11.png";  description = "11"; } word11;
+bitmap {filename = "word12.png";  description = "12"; } word12;
+bitmap {filename = "word13.png";  description = "13"; } word13;
+bitmap {filename = "word14.png";  description = "14"; } word14;
+bitmap {filename = "word15.png";  description = "15"; } word15;
+bitmap {filename = "word16.png";  description = "16"; } word16;
+bitmap {filename = "word17.png";  description = "17"; } word17;
+bitmap {filename = "word18.png";  description = "18"; } word18;
+bitmap {filename = "word19.png";  description = "19"; } word19;
+bitmap {filename = "word20.png";  description = "20"; } word20;
+bitmap {filename = "word21.png";  description = "21"; } word21;
+bitmap {filename = "word22.png";  description = "22"; } word22;
+bitmap {filename = "word23.png";  description = "23"; } word23;
+bitmap {filename = "word24.png";  description = "24"; } word24;
+bitmap {filename = "word25.png";  description = "25"; } word25;
+bitmap {filename = "word26.png";  description = "26"; } word26;
+bitmap {filename = "word27.png";  description = "27"; } word27;
+bitmap {filename = "word28.png";  description = "28"; } word28;
+bitmap {filename = "word29.png";  description = "29"; } word29;
+bitmap {filename = "word30.png";  description = "30"; } word30;
+bitmap {filename = "word31.png";  description = "31"; } word31;
+bitmap {filename = "word32.png";  description = "32"; } word32;
+} words;
+
+array{	
+bitmap {filename = "object1.png";  description = "1"; } object1;
+bitmap {filename = "object2.png";  description = "2"; } object2;
+bitmap {filename = "object3.png";  description = "3"; } object3;
+bitmap {filename = "object4.png";  description = "4"; } object4;
+bitmap {filename = "object5.png";  description = "5"; } object5;
+bitmap {filename = "object6.png";  description = "6"; } object6;
+bitmap {filename = "object7.png";  description = "7"; } object7;
+bitmap {filename = "object8.png";  description = "8"; } object8;
+bitmap {filename = "object9.png";  description = "9"; } object9;
+bitmap {filename = "object10.png";  description = "10"; } object10;
+bitmap {filename = "object11.png";  description = "11"; } object11;
+bitmap {filename = "object12.png";  description = "12"; } object12;
+bitmap {filename = "object13.png";  description = "13"; } object13;
+bitmap {filename = "object14.png";  description = "14"; } object14;
+bitmap {filename = "object15.png";  description = "15"; } object15;
+bitmap {filename = "object16.png";  description = "16"; } object16;
+bitmap {filename = "object17.png";  description = "17"; } object17;
+bitmap {filename = "object18.png";  description = "18"; } object18;
+bitmap {filename = "object19.png";  description = "19"; } object19;
+bitmap {filename = "object20.png";  description = "20"; } object20;
+bitmap {filename = "object21.png";  description = "21"; } object21;
+bitmap {filename = "object22.png";  description = "22"; } object22;
+bitmap {filename = "object23.png";  description = "23"; } object23;
+bitmap {filename = "object24.png";  description = "24"; } object24;
+bitmap {filename = "object25.png";  description = "25"; } object25;
+bitmap {filename = "object26.png";  description = "26"; } object26;
+bitmap {filename = "object27.png";  description = "27"; } object27;
+bitmap {filename = "object28.png";  description = "28"; } object28;
+bitmap {filename = "object29.png";  description = "29"; } object29;
+bitmap {filename = "object30.png";  description = "30"; } object30;
+bitmap {filename = "object31.png";  description = "31"; } object31;
+bitmap {filename = "object32.png";  description = "32"; } object32;
+} objects;
+
+array{
+bitmap {filename = "scr_object1.png";  description = "1"; } scr_object1;
+bitmap {filename = "scr_object2.png";  description = "2"; } scr_object2;
+bitmap {filename = "scr_object3.png";  description = "3"; } scr_object3;
+bitmap {filename = "scr_object4.png";  description = "4"; } scr_object4;
+bitmap {filename = "scr_object5.png";  description = "5"; } scr_object5;
+bitmap {filename = "scr_object6.png";  description = "6"; } scr_object6;
+bitmap {filename = "scr_object7.png";  description = "7"; } scr_object7;
+bitmap {filename = "scr_object8.png";  description = "8"; } scr_object8;
+bitmap {filename = "scr_object9.png";  description = "9"; } scr_object9;
+bitmap {filename = "scr_object10.png";  description = "10"; } scr_object10;
+bitmap {filename = "scr_object11.png";  description = "11"; } scr_object11;
+bitmap {filename = "scr_object12.png";  description = "12"; } scr_object12;
+bitmap {filename = "scr_object13.png";  description = "13"; } scr_object13;
+bitmap {filename = "scr_object14.png";  description = "14"; } scr_object14;
+bitmap {filename = "scr_object15.png";  description = "15"; } scr_object15;
+bitmap {filename = "scr_object16.png";  description = "16"; } scr_object16;
+bitmap {filename = "scr_object17.png";  description = "17"; } scr_object17;
+bitmap {filename = "scr_object18.png";  description = "18"; } scr_object18;
+bitmap {filename = "scr_object19.png";  description = "19"; } scr_object19;
+bitmap {filename = "scr_object20.png";  description = "20"; } scr_object20;
+bitmap {filename = "scr_object21.png";  description = "21"; } scr_object21;
+bitmap {filename = "scr_object22.png";  description = "22"; } scr_object22;
+bitmap {filename = "scr_object23.png";  description = "23"; } scr_object23;
+bitmap {filename = "scr_object24.png";  description = "24"; } scr_object24;
+bitmap {filename = "scr_object25.png";  description = "25"; } scr_object25;
+bitmap {filename = "scr_object26.png";  description = "26"; } scr_object26;
+bitmap {filename = "scr_object27.png";  description = "27"; } scr_object27;
+bitmap {filename = "scr_object28.png";  description = "28"; } scr_object28;
+bitmap {filename = "scr_object29.png";  description = "29"; } scr_object29;
+bitmap {filename = "scr_object30.png";  description = "30"; } scr_object30;
+bitmap {filename = "scr_object31.png";  description = "31"; } scr_object31;
+bitmap {filename = "scr_object32.png";  description = "32"; } scr_object32;
+} scr_object;
+
+array{
+bitmap {filename = "color1.png";  description = "1"; } color1;
+bitmap {filename = "color2.png";  description = "2"; } color2;
+bitmap {filename = "color3.png";  description = "3"; } color3;
+bitmap {filename = "color4.png";  description = "4"; } color4;
+bitmap {filename = "color5.png";  description = "5"; } color5;
+bitmap {filename = "color6.png";  description = "6"; } color6;
+bitmap {filename = "color7.png";  description = "7"; } color7;
+bitmap {filename = "color8.png";  description = "8"; } color8;
+bitmap {filename = "color9.png";  description = "9"; } color9;
+bitmap {filename = "color10.png";  description = "10"; } color10;
+bitmap {filename = "color11.png";  description = "11"; } color11;
+bitmap {filename = "color12.png";  description = "12"; } color12;
+bitmap {filename = "color13.png";  description = "13"; } color13;
+bitmap {filename = "color14.png";  description = "14"; } color14;
+bitmap {filename = "color15.png";  description = "15"; } color15;
+bitmap {filename = "color16.png";  description = "16"; } color16;
+bitmap {filename = "color17.png";  description = "17"; } color17;
+bitmap {filename = "color18.png";  description = "18"; } color18;
+bitmap {filename = "color19.png";  description = "19"; } color19;
+bitmap {filename = "color20.png";  description = "20"; } color20;
+bitmap {filename = "color21.png";  description = "21"; } color21;
+bitmap {filename = "color22.png";  description = "22"; } color22;
+bitmap {filename = "color23.png";  description = "23"; } color23;
+bitmap {filename = "color24.png";  description = "24"; } color24;
+bitmap {filename = "color25.png";  description = "25"; } color25;
+bitmap {filename = "color26.png";  description = "26"; } color26;
+bitmap {filename = "color27.png";  description = "27"; } color27;
+bitmap {filename = "color28.png";  description = "28"; } color28;
+bitmap {filename = "color29.png";  description = "29"; } color29;
+bitmap {filename = "color30.png";  description = "30"; } color30;
+bitmap {filename = "color31.png";  description = "31"; } color31;
+bitmap {filename = "color32.png";  description = "32"; } color32;
+} colors;
+
+picture {text {caption = "+"; font_color= 0,0,0; font_size=30; font = "Times New Roman";} fix_text; x = 0; y = 0; } fixation;
+
+################ INSTRUCTIONS ################
+
+picture { text {caption = "The experiment will start at any moment.
+Make sure that you stay completely still.
+
+Look at the middle of the screen while the images appear.
+
+There will be periods when no images appear. 
+Please keep looking at the screen during this time.
+
+YOU DO NOT HAVE TO REACT."; 
+font_color = 0,0,0; font_size = 24; font = "Times New Roman";
+}; x = 0; y = 0; } startTrialPicture; 
+
+############ Start fMRI Trial ####################
+
+trial {   
+   picture startTrialPicture;
+   time = 0;       
+   duration = next_picture;
+   picture startTrialPicture;
+   mri_pulse = 1;   
+   duration = 1000;                    
+} startTrial;
+
+################# Condition/Category Trial ################################
+trial {
+		all_responses = false;	           # Does not log all responses, only those during active events # 
+		trial_type = fixed;					 
+										
+	stimulus_event {						               
+					picture {
+						bitmap face1;
+						x = 0; y = 0;
+					} category_stim;
+					time = 0;
+					duration = 745;
+					code = "";
+					response_active = false;
+					}category_event;
+					
+	stimulus_event {								         
+					picture fixation;
+					deltat= 745;
+					duration =245;
+					code = "fixation";
+					response_active = false;
+					}isi_fix;
+					
+} category_trial;
+
+################# Baseline ################################
+trial {
+		all_responses = false;	           # Does not log all responses, only those during active events # 
+		trial_type = fixed;
+					 					
+	stimulus_event {						               
+					picture fixation;
+					time = 0;
+					duration = 17995;
+					code = "rest";
+					response_active = false;
+					}rest_event;
+					
+} rest_trial;
+
+
+################################## START PCL ####################################
+
+begin_pcl;
+
+############# DECLARATIONS ##############
+int start_time = clock.time();
+
+preset string run = "1";
+	# make sure to enter this correctly before each of the 4 runs
+	
+	/*
+preset int button_condition = 1; # asks when you RUN the experiment for the subjectCondition
+	# either index or middle finger is match, and other is non-match
+*/
+preset int block_condition = 1;
+	# either of 4 different pseudo-randomized orders
+
+string subnr = logfile.subject();
+logfile.set_filename(subnr + "_run_" + run + "_Localizer_PRACTICE.log");
+
+output_file output = new output_file;
+output.open(subnr + "_run" + run + "_Localizer_PRACTICE.txt" );	
+output.print(start_time);output.print("\n");
+
+string image = "";
+string category = "";
+
+output.print( "block\ttrialnr\tcategory\timage\tcurrent_time\n" );  # What do we want it to print?
+
+string faces_code = "1";
+string houses_code = "2";
+string words_code = "3";
+string objects_code = "4";
+string scr_object_code = "5";
+string colors_code = "6";
+
+string baseline = "0";
+	
+array <int> blocks [4][12] = 
+{
+	{1,2,3,4,5,6,2,1,3,5,6,4},
+	{6,1,2,4,5,3,2,1,3,4,5,6},
+	{5,1,2,6,4,3,2,4,5,6,1,3},
+	{5,3,2,4,6,1,3,1,2,4,6,5}
+} ;
+
+int trial_number = 1;
+
+int j = 1;
+
+int current_time = 0;
+
+# randomize stimuli arrays
+faces.shuffle();
+houses.shuffle(); 
+words.shuffle(); 
+objects.shuffle(); 
+scr_object.shuffle(); 
+colors.shuffle(); 
+
+int which_run = 0;
+int start_loop = 1;
+
+string image_number = "1";
+
+############ SUB FUNCTIONS ###########
+
+######## 1 #########
+
+sub condition1 begin ## # FACES
+
+if trial_number > 96
+	then 
+		start_loop = 17; 
+		which_run = 32;
+	else
+		start_loop = 1;	
+		which_run = 16;	
+end;
+
+loop j = start_loop until j > which_run begin; ##
+		
+		category_stim.set_part( 1, faces[j] ); ## 			# present the first faces image (after being shuffled)
+	
+		image = faces[j].description();	##	 					# save the image name
+		category = "faces";	##										# what category we are in		
+		category_event.set_event_code(faces_code + image); ##		# set the event code in the .log file for each trial
+		current_time = clock.time();								# what time is it?
+			
+		category_trial.present();									# present one time a category_trial
+		
+		output.print("localizer");output.print("\t");		# save output
+		output.print(trial_number);output.print("\t");
+		output.print(category);output.print("\t");
+		output.print(image);output.print("\t");
+		output.print(current_time);output.print("\n");
+
+		trial_number = trial_number + 1;
+				
+		j = j + 1;
+		end; # end j loop
+		
+end; # end sub
+####################
+
+
+######## 2 #########
+
+sub condition2 begin ### HOUSES
+
+if trial_number > 96
+	then 
+		start_loop = 17; 
+		which_run = 32;
+	else
+		start_loop = 1;	
+		which_run = 16;	
+end;
+
+loop j = start_loop until j > which_run begin; ##
+		
+		category_stim.set_part( 1, houses[j] ); 				
+	
+		image = houses[j].description();		 					
+		category = "houses";
+		category_event.set_event_code(houses_code + image);  		
+		current_time = clock.time();								
+			
+		category_trial.present();									
+		
+		output.print("localizer");output.print("\t");		
+		output.print(trial_number);output.print("\t");
+		output.print(category);output.print("\t");
+		output.print(image);output.print("\t");
+		output.print(current_time);output.print("\n");
+
+		trial_number = trial_number + 1;
+				
+		j = j + 1;
+		end; 
+		
+end; # end sub
+####################
+
+######## 3 #########
+
+sub condition3 begin ### WORDS
+
+if trial_number > 96
+	then 
+		start_loop = 17; 
+		which_run = 32;
+	else
+		start_loop = 1;	
+		which_run = 16;	
+end;
+
+loop j = start_loop until j > which_run begin; ## 
+		
+		category_stim.set_part( 1, words[j] ); 				
+	
+		image = words[j].description();		 					
+		category = "words";
+		category_event.set_event_code(words_code + image); 			
+		current_time = clock.time();								
+			
+		category_trial.present();									
+		
+		output.print("localizer");output.print("\t");		
+		output.print(trial_number);output.print("\t");
+		output.print(category);output.print("\t");
+		output.print(image);output.print("\t");
+		output.print(current_time);output.print("\n");
+
+		trial_number = trial_number + 1;
+				
+		j = j + 1;
+		end; 
+		
+end; # end sub
+####################
+
+
+######## 4 #########
+
+sub condition4 begin ### Objects
+
+if trial_number > 96
+	then 
+		start_loop = 17; 
+		which_run = 32;
+	else
+		start_loop = 1;	
+		which_run = 16;	
+end;
+
+loop j = start_loop until j > which_run begin; ##
+		
+		category_stim.set_part( 1, objects[j] );    			
+	
+		image = objects[j].description();		 					
+		category = "objects";											
+		category_event.set_event_code(objects_code + image); 			
+		current_time = clock.time();										
+			
+		category_trial.present();											
+		
+		output.print("localizer");output.print("\t");				
+		output.print(trial_number);output.print("\t");
+		output.print(category);output.print("\t");
+		output.print(image);output.print("\t");
+		output.print(current_time);output.print("\n");
+
+		trial_number = trial_number + 1;
+				
+		j = j + 1;
+		end; 
+		
+end; # end sub
+####################
+
+
+######## 5 #########
+
+sub condition5 begin ### scr_object
+
+if trial_number > 96
+	then 
+		start_loop = 17; 
+		which_run = 32;
+	else
+		start_loop = 1;	
+		which_run = 16;	
+end;
+
+loop j = start_loop until j > which_run begin; ##
+		
+		category_stim.set_part( 1, scr_object[j] );			
+	
+		image = scr_object[j].description();					
+		category = "scr_object";										
+		category_event.set_event_code(scr_object_code + image); 		
+		current_time = clock.time();								
+			
+		category_trial.present();									
+		
+		output.print("localizer");output.print("\t");		
+		output.print(trial_number);output.print("\t");
+		output.print(category);output.print("\t");
+		output.print(image);output.print("\t");
+		output.print(current_time);output.print("\n");
+
+		trial_number = trial_number + 1;
+				
+		j = j + 1;
+		end; 
+		
+end; # end sub
+####################
+
+######## 6 #########
+
+sub condition6 begin ### COLORS
+
+if trial_number > 96
+	then 
+		start_loop = 17; 
+		which_run = 32;
+	else
+		start_loop = 1;	
+		which_run = 16;	
+end;
+
+loop j = start_loop until j > which_run begin; ##
+		
+		category_stim.set_part( 1, colors[j] ); 	 			
+	
+		image = colors[j].description();		 					
+		category = "colors";											
+		category_event.set_event_code(colors_code + image); 			
+		current_time = clock.time();								
+			
+		category_trial.present();									
+		
+		output.print("localizer");output.print("\t");		
+		output.print(trial_number);output.print("\t");
+		output.print(category);output.print("\t");
+		output.print(image);output.print("\t");
+		output.print(current_time);output.print("\n");
+
+		trial_number = trial_number + 1;
+				
+		j = j + 1;
+		end; 
+		
+end; # end sub
+####################
+
+
+############ FLOW CHART #################
+
+startTrial.present();
+rest_trial.present();
+
+int r = 1;
+loop r = 1 until r > 12 begin;
+
+if blocks[block_condition][r] == 1 then   			# ex. randomize_blocks[2][15] = 4
+		condition1();
+	elseif blocks[block_condition][r] == 2 then
+		condition2();
+	elseif blocks[block_condition][r] == 3 then
+		condition3();
+	elseif blocks[block_condition][r] == 4 then
+		condition4();
+	elseif blocks[block_condition][r] == 5 then
+		condition5();
+	elseif blocks[block_condition][r] == 6 then
+		condition6();
+end;
+
+if r == 12 then
+		rest_event.set_event_code(baseline);
+		rest_event.set_duration(17995);
+		rest_trial.present();
+	else 
+		rest_event.set_event_code(baseline);
+		rest_event.set_duration(3995);
+		rest_trial.present();
+end;
+
+r = r + 1;
+end; # end loop
+
+#########
+int end_time = clock.time();
+output.print(end_time);output.print("\n");
+
+
+
+
+
