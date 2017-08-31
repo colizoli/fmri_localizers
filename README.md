@@ -5,6 +5,7 @@ I will continue to update with more scripts.
 ## Currently included...
 * Visual word form area (VWFA) and color localizers (Presentation)
 * Spoken language and sound (music vs. environmental) localizer (Presentation)
+* Area MT localizer (coherent vs. random dot motion) (MATLAB)
 
 ### Presentation programming language
 
@@ -26,6 +27,15 @@ I will continue to update with more scripts.
 * 6 Categories of visual items:
 * Faces, Houses, Words (Dutch), Objects, Scrambled Objects, Colors
 * blocked design
+
+### MATLAB programming language
+
+#### fMRI_MT_Localizer.m
+* Coherent vs. random dot motion (ABAB)
+* blocked design
+* 8 directions of motion (cardinal + diagonal)
+* Dependent functions are included in the same folder
+* Thanks to Anne Urai for much of the dot motion code
 
 The VWFA, color and sound protocols were used successfully in the following publications. 
 Note: The color localization used in these studies was similar but with letters instead of words.
